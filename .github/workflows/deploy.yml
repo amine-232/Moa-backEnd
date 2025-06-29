@@ -21,4 +21,4 @@ jobs:
       run: npm install
 
     - name: Run server (optional for tests only, not for actual hosting)
-      run: nodemon index.js
+      run: deploy
