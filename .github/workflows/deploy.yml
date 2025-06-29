@@ -1,11 +1,11 @@
-name: Node.js CI
+name: Node.js CI & Deploy
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,7 +21,27 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: npm start
+        run: |
+          echo "No tests defined yet"
+          # Replace with `npm test` when tests are ready
 
-        
+      # Optional build step (if you use transpilers, bundlers, etc.)
+      # - name: Build
+      #   run: npm run build
 
+      - name: Deploy to server
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "Deploying application..."
+          # Example: SCP or SSH deploy command
+          # scp -r ./dist user@yourserver:/path/to/deploy
+          # ssh user@yourserver 'pm2 restart your-app'
+          
+          echo "You should replace this with your actual deploy commands"
+
+      # Example: Deploy to GitHub Pages
+      # - name: Deploy to GitHub Pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./public
