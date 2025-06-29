@@ -1,11 +1,11 @@
-name: Node.js CI + Deploy
+name: Node.js CI
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,8 +20,5 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    # Skip node index.js here — we don't run servers on GitHub!
-
-    - name: Trigger Render Deploy
-      run: |
-        curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
+    - name: Run server (optional for tests only, not for actual hosting)
+      run: npm start
