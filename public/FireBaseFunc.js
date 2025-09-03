@@ -42,7 +42,7 @@ const DeleteFunction = async ({ path, uid }) => {
     });
 };
 
-const getAllgetWorPlace = async ({ collectionRef, map }) => {
+const getAllColloections = async ({ collectionRef, map }) => {
   try {
     const docsSnapshot = await collectionRef.get();
 
@@ -232,7 +232,7 @@ module.exports = {
   UploadFile,
   AddFunctions,
   UpdataCollection,
-  getAllgetWorPlace,
+  getAllColloections,
   UpDateFile,
   TokenAccessGenrator,
 };
